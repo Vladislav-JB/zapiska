@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Записка – Telegram Mini App для онлайн-записи, демо</title>
 <meta name="description" content="Демо-концепт Telegram Mini App для онлайн-записи клиентов: услуги, мастера, выбор времени, мои записи, админ-панель со шкалой загрузки. Подходит любому бизнесу с записью.">
-<meta name="theme-color" content="#fbf6f1">
+<meta name="theme-color" content="#effcf8">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Записка – Telegram Mini App для онлайн-записи">
 <meta property="og:description" content="Демо: клиенты записываются сами, администратор видит загрузку по времени и переносит записи в пару касаний. Подходит любому бизнесу с записью.">
@@ -15,8 +15,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Carlito:ital,wght@1,700&family=Manrope:wght@500;700;800&family=Oswald:wght@500;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #fbf6f1; --card: #ffffff; --ink: #2b1d1a; --soft: #85706a; --line: #eadbd2;
-    --accent: #b0524b; --accent2: #a8672e; --fill: #b0524b; --fill2: #a8672e; --asoft: #f8e9e4; --bar: #2b1d1a;
+    --bg: #effcf8; --card: #ffffff; --ink: #0f2e2a; --soft: #4d716b; --line: #cdeee6;
+    --accent: #0a9d86; --accent2: #ff6b5e; --fill: #d9382f; --fill2: #c94a14; --asoft: #dff7f1; --bar: #2b1d1a;
     --head: 'Playfair Display', Georgia, serif; --ok: #17a673; --warn: #e08a1e; --bad: #e5484d; --r: 18px;
   }
   * { box-sizing: border-box; }
@@ -159,6 +159,34 @@
   .foot__made img { display: inline-block; width: 40px; height: 52px; max-width: none; margin-left: .35em; vertical-align: -7px; }
   .foot__adm { flex-basis: 100%; }
   .foot__adm button { color: #5a47c9; font-size: 13px; text-decoration: underline; text-underline-offset: 3px; }
+
+  /* оформление «Мята и коралл»: цвета приходят из темы ниши */
+  :root { --bg2: #ffffff; --glow: #d3f6ec; --h1: #006457; --h2: #007f6c; --h3: #139c84; --hi: #d9382f; --ico1: #00c2a8; --ico2: #0a9d86; --dot: #ffb14a; --logo: #0a7a69; }
+  .stage { background: linear-gradient(180deg, var(--glow) 0, var(--bg) 240px, var(--bg2) 100%); }
+  .logo { color: var(--logo); font-weight: 800; font-size: 22px; }
+  .chip-btn { border: 2px solid var(--line); color: var(--logo); }
+  .back { border: 2px solid var(--line); }
+  .hero { position: relative; overflow: hidden; background: radial-gradient(rgba(255, 255, 255, .22) 2px, transparent 2.6px) 0 0 / 20px 20px, linear-gradient(135deg, var(--h1) 0%, var(--h2) 60%, var(--h3) 100%); border-radius: 30px; padding: 26px 20px; box-shadow: 0 20px 40px rgba(0, 0, 0, .22); }
+  .hero h1 { font-size: 31px; font-weight: 800; }
+  .hero small { background: rgba(255, 255, 255, .22); padding: 4px 10px; border-radius: 999px; display: inline-block; }
+  .hero .btn.light { color: var(--fill); box-shadow: 0 12px 24px rgba(0, 0, 0, .25); }
+  h2 { font-size: 21px; font-weight: 800; }
+  h2::before { content: ''; display: inline-block; width: 7px; height: 20px; border-radius: 4px; background: linear-gradient(180deg, var(--fill), var(--fill2)); margin-right: 9px; vertical-align: -3px; }
+  .item { border-width: 2px; border-radius: 22px; padding: 14px 16px; gap: 12px; }
+  .item[data-a=quick]::before, .item[data-a=svc]::before { content: ''; width: 44px; height: 44px; border-radius: 15px; flex: none; background: radial-gradient(circle at 72% 28%, var(--dot) 0 18%, transparent 20%), linear-gradient(135deg, var(--ico1), var(--ico2)); }
+  .item[data-a=quick] > span:first-of-type, .item[data-a=svc] > span:first-of-type { flex: 1; min-width: 0; }
+  .item .price { color: var(--hi); font-weight: 800; }
+  .item.on { border-color: var(--fill); }
+  .person { border-width: 2px; border-radius: 24px; }
+  .ava, .perk i { background: linear-gradient(135deg, var(--ico1), var(--ico2)); }
+  .perk i { color: #fff; }
+  .nav { border: 0; box-shadow: 0 -8px 28px rgba(0, 0, 0, .14); border-radius: 24px 24px 0 0; }
+  .nav button.on { color: var(--hi); }
+  .day, .slot { border-width: 2px; border-radius: 16px; }
+  .day.on, .slot.on { box-shadow: 0 10px 20px rgba(0, 0, 0, .22); }
+  .seg, .stat { border-width: 2px; }
+  .btn { border-radius: 18px; box-shadow: 0 14px 26px rgba(0, 0, 0, .22); font-weight: 800; }
+  .btn.ghost, .btn.danger, .btn.small { box-shadow: none; }
 </style>
 </head>
 <body>
@@ -199,7 +227,7 @@
   var NICHES = {
     beauty: {
       title: 'Салон красоты', biz: 'Студия «Пион»', tag: 'Запишитесь к мастеру за минуту, без звонков', who: 'Мастера', hours: [10, 20], dark: false,
-      th: { bg: '#fbf6f1', card: '#ffffff', ink: '#2b1d1a', soft: '#85706a', line: '#eadbd2', accent: '#b0524b', accent2: '#a8672e', fill: '#b0524b', fill2: '#a8672e', asoft: '#f8e9e4', bar: '#2b1d1a', head: "'Playfair Display', Georgia, serif" },
+      th: { bg: '#effcf8', bg2: '#ffffff', glow: '#d3f6ec', card: '#ffffff', ink: '#0f2e2a', soft: '#4d716b', line: '#cdeee6', accent: '#0a9d86', accent2: '#ff6b5e', fill: '#d9382f', fill2: '#c94a14', asoft: '#dff7f1', bar: '#0a7a69', head: "'Manrope', system-ui, sans-serif", h1: '#006457', h2: '#007f6c', h3: '#139c84', hi: '#d9382f', ico1: '#00c2a8', ico2: '#0a9d86', dot: '#ffb14a', logo: '#0a7a69' },
       res: [{ id: 0, name: 'Алина', role: 'Стилист' }, { id: 1, name: 'Мария', role: 'Мастер маникюра' }, { id: 2, name: 'Ольга', role: 'Косметолог' }],
       svc: [
         { id: 'a', name: 'Стрижка', dur: 60, price: 2200, r: [0] },
@@ -211,7 +239,7 @@
     },
     barber: {
       title: 'Барбершоп', biz: 'Барбершоп «Кедр»', tag: 'Выберите барбера и время, всё остальное мы сделаем сами', who: 'Барберы', hours: [10, 21], dark: true,
-      th: { bg: '#14100e', card: '#1f1916', ink: '#f4ece4', soft: '#a8998e', line: '#352a28', accent: '#f0553f', accent2: '#f08a24', fill: '#c4372a', fill2: '#b8500c', asoft: '#2e1b17', bar: '#a82c1f', head: "'Oswald', Impact, sans-serif" },
+      th: { bg: '#14100e', bg2: '#0e0b0a', glow: '#2d1815', card: '#1f1916', ink: '#f4ece4', soft: '#a8998e', line: '#3b2c29', accent: '#f0553f', accent2: '#f08a24', fill: '#c4372a', fill2: '#b8500c', asoft: '#2e1b17', bar: '#a82c1f', head: "'Oswald', Impact, sans-serif", h1: '#8f1d14', h2: '#c4372a', h3: '#d9731a', hi: '#ff7a59', ico1: '#d8402f', ico2: '#9c2418', dot: '#ffc24a', logo: '#ffffff' },
       res: [{ id: 0, name: 'Артём', role: 'Барбер' }, { id: 1, name: 'Никита', role: 'Барбер' }, { id: 2, name: 'Денис', role: 'Топ-барбер' }],
       svc: [
         { id: 'a', name: 'Мужская стрижка', dur: 60, price: 1800, r: [0, 1, 2] },
@@ -223,7 +251,7 @@
     },
     carwash: {
       title: 'Автомойка', biz: 'Мойка «Капля»', tag: 'Займите бокс заранее и приезжайте без очереди', who: 'Боксы', hours: [8, 22], dark: true,
-      th: { bg: '#0b1424', card: '#12203a', ink: '#e8f1ff', soft: '#8da2c0', line: '#1f3354', accent: '#35b8ea', accent2: '#5b9bff', fill: '#0e7fae', fill2: '#2563eb', asoft: '#10294a', bar: '#0b6a93', head: "'Manrope', system-ui, sans-serif" },
+      th: { bg: '#0b1424', bg2: '#08101c', glow: '#12305a', card: '#12203a', ink: '#e8f1ff', soft: '#8da2c0', line: '#24406b', accent: '#35b8ea', accent2: '#5b9bff', fill: '#0e7fae', fill2: '#2563eb', asoft: '#10294a', bar: '#0b6a93', head: "'Manrope', system-ui, sans-serif", h1: '#0a4d78', h2: '#0f78b0', h3: '#1b9bd1', hi: '#4cc9f5', ico1: '#1ea5dc', ico2: '#2563eb', dot: '#ffc24a', logo: '#e8f1ff' },
       res: [{ id: 0, name: 'Бокс 1', role: 'Мойка' }, { id: 1, name: 'Бокс 2', role: 'Мойка' }, { id: 2, name: 'Бокс 3', role: 'Детейлинг' }],
       svc: [
         { id: 'a', name: 'Мойка кузова', dur: 30, price: 800, r: [0, 1] },
@@ -235,7 +263,7 @@
     },
     clinic: {
       title: 'Клиника', biz: 'Клиника «Ясность»', tag: 'Запись к врачу онлайн, в любое время суток', who: 'Врачи', hours: [8, 20], dark: false,
-      th: { bg: '#f2f8f8', card: '#ffffff', ink: '#12302f', soft: '#5f7f7d', line: '#d6e6e5', accent: '#0b7f74', accent2: '#1a8f9b', fill: '#0b7f74', fill2: '#16747f', asoft: '#dff3f1', bar: '#12302f', head: "'Manrope', system-ui, sans-serif" },
+      th: { bg: '#f2f8fb', bg2: '#ffffff', glow: '#d6ecf6', card: '#ffffff', ink: '#10303f', soft: '#4f6e7a', line: '#cfe3ec', accent: '#0b7f9f', accent2: '#16a39b', fill: '#0b7f9f', fill2: '#0a6f8c', asoft: '#dff0f7', bar: '#0a5f78', head: "'Manrope', system-ui, sans-serif", h1: '#075d78', h2: '#0b7f9f', h3: '#169c93', hi: '#0b7f9f', ico1: '#2ec4b6', ico2: '#0b7f9f', dot: '#ffb14a', logo: '#0a5f78' },
       res: [{ id: 0, name: 'Орлова Е.', role: 'Терапевт' }, { id: 1, name: 'Белов П.', role: 'Невролог' }, { id: 2, name: 'Миронова А.', role: 'УЗИ-диагностика' }],
       svc: [
         { id: 'a', name: 'Приём терапевта', dur: 30, price: 1800, r: [0] },
@@ -247,7 +275,7 @@
     },
     custom: {
       title: 'Свой бизнес', biz: 'Ваш бизнес', tag: 'Онлайн-запись под ваш бренд: цвета, услуги и тексты', who: 'Специалисты', hours: [9, 19], dark: false,
-      th: { bg: '#f6f5ff', card: '#ffffff', ink: '#1c1b2e', soft: '#6b6a80', line: '#e6e4f5', accent: '#6c4cf1', accent2: '#4a62d8', fill: '#6c4cf1', fill2: '#4a62d8', asoft: '#eeebff', bar: '#1c1b2e', head: "'Manrope', system-ui, sans-serif" },
+      th: { bg: '#f6f5ff', bg2: '#ffffff', glow: '#e4defc', card: '#ffffff', ink: '#1c1b2e', soft: '#6b6a80', line: '#e0dcf5', accent: '#6c4cf1', accent2: '#4a62d8', fill: '#6c4cf1', fill2: '#4a62d8', asoft: '#eeebff', bar: '#1c1b2e', head: "'Manrope', system-ui, sans-serif", h1: '#5a3ad8', h2: '#6c4cf1', h3: '#4a62d8', hi: '#6c4cf1', ico1: '#6c4cf1', ico2: '#4a62d8', dot: '#ffb14a', logo: '#4b30c4' },
       res: [{ id: 0, name: 'Специалист 1', role: 'Ваша должность' }, { id: 1, name: 'Специалист 2', role: 'Ваша должность' }],
       svc: [
         { id: 'a', name: 'Консультация', dur: 30, price: 1000, r: [0, 1] },
@@ -406,11 +434,10 @@
     if (store.niche === 'custom') {
       var sw = SWATCH[store.custom.c] || SWATCH[0];
       t.accent = sw[0]; t.accent2 = sw[2]; t.fill = sw[1]; t.fill2 = sw[2]; t.asoft = mix(sw[0], 0.88);
+      t.h1 = sw[1]; t.h2 = sw[1]; t.h3 = sw[2]; t.hi = sw[1]; t.ico1 = sw[1]; t.ico2 = sw[2]; t.logo = sw[1]; t.glow = mix(sw[0], 0.8);
     }
     var r = document.documentElement.style;
-    r.setProperty('--bg', t.bg); r.setProperty('--card', t.card); r.setProperty('--ink', t.ink); r.setProperty('--soft', t.soft);
-    r.setProperty('--line', t.line); r.setProperty('--accent', t.accent); r.setProperty('--accent2', t.accent2);
-    r.setProperty('--fill', t.fill); r.setProperty('--fill2', t.fill2); r.setProperty('--asoft', t.asoft); r.setProperty('--bar', t.bar); r.setProperty('--head', t.head);
+    ['bg', 'bg2', 'glow', 'card', 'ink', 'soft', 'line', 'accent', 'accent2', 'fill', 'fill2', 'asoft', 'bar', 'head', 'h1', 'h2', 'h3', 'hi', 'ico1', 'ico2', 'dot', 'logo'].forEach(function (k) { r.setProperty('--' + k, t[k]); });
     r.setProperty('--sheet', t.card);
     var mt = document.querySelector('meta[name=theme-color]'); if (mt) mt.setAttribute('content', t.bg);
     $('#logo').textContent = bizName();
