@@ -49,13 +49,13 @@
   h2 { font-size: 19px; margin: 20px 0 10px; }
   .sub { color: var(--soft); font-size: 14.5px; margin: 0 0 14px; }
   .hero { background: linear-gradient(135deg, var(--fill), var(--fill2)); color: #fff; border-radius: 24px; padding: 20px 18px; margin: 6px 0 4px; }
-  .hero small { opacity: .9; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; font-size: 11.5px; }
+  .hero small { font-weight: 700; letter-spacing: .06em; text-transform: uppercase; font-size: 11.5px; }
   .hero h1 { margin: 6px 0 6px; font-size: 27px; }
-  .hero p { margin: 0 0 16px; opacity: .95; font-size: 15px; }
+  .hero p { margin: 0 0 16px; font-size: 15px; }
   .btn { display: block; width: 100%; padding: 15px 16px; border-radius: 16px; background: linear-gradient(135deg, var(--fill), var(--fill2)); color: #fff; font-weight: 800; font-size: 16.5px; text-align: center; box-shadow: 0 10px 22px rgba(0, 0, 0, .16); }
   .btn:disabled { opacity: .5; box-shadow: none; cursor: default; }
   .btn.light { background: #fff; color: var(--fill); box-shadow: none; }
-  .btn.ghost { background: var(--card); color: var(--accent); border: 1px solid var(--line); box-shadow: none; }
+  .btn.ghost { background: var(--card); color: var(--logo); border: 1px solid var(--line); box-shadow: none; }
   .btn.small { padding: 10px 12px; font-size: 14.5px; border-radius: 12px; box-shadow: none; }
   .btn.danger { background: var(--card); color: var(--bad); border: 1px solid var(--line); box-shadow: none; }
   .btn + .btn { margin-top: 10px; }
@@ -109,7 +109,7 @@
   .msg { background: var(--asoft); border: 1px solid var(--line); border-radius: 18px 18px 18px 4px; padding: 12px 14px; font-size: 14.5px; margin-top: 8px; }
   .msg-h { font-size: 12.5px; color: var(--soft); margin: 14px 0 0; font-weight: 700; }
   .pill { display: inline-block; font-size: 12px; font-weight: 700; padding: 3px 9px; border-radius: 999px; background: rgba(23, 166, 115, .16); color: var(--ok); white-space: nowrap; }
-  .pill.new { background: var(--asoft); color: var(--accent); }
+  .pill.new { background: var(--asoft); color: var(--logo); }
   .bk { background: var(--card); border: 1px solid var(--line); border-radius: var(--r); padding: 12px 14px; margin-bottom: 10px; }
   .bk .t { display: flex; justify-content: space-between; gap: 10px; align-items: flex-start; }
   .bk b { font-size: 15.5px; }
@@ -129,6 +129,7 @@
   .tl .cell { border-top: 1px solid var(--line); }
   .tl .blk { margin: 2px 0; border-radius: 10px; padding: 2px 5px; font-size: 10.5px; line-height: 1.15; white-space: nowrap; text-overflow: ellipsis; background: var(--asoft); border-left: 3px solid var(--accent); color: var(--ink); text-align: left; overflow: hidden; z-index: 1; }
   .tl .blk b { display: block; font-size: 11.5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .tl .blk.tall { white-space: normal; }
   .tl .blk.mine { background: var(--fill); color: #fff; border-left-color: rgba(255, 255, 255, .6); }
   .tl .blk.past { opacity: .6; }
   .tgl { display: flex; justify-content: space-between; align-items: center; gap: 10px; padding: 10px 0; border-bottom: 1px solid var(--line); font-size: 14.5px; }
@@ -161,14 +162,14 @@
   .foot__adm button { color: #5a47c9; font-size: 13px; text-decoration: underline; text-underline-offset: 3px; }
 
   /* оформление «Мята и коралл»: цвета приходят из темы ниши */
-  :root { --bg2: #ffffff; --glow: #d3f6ec; --h1: #006457; --h2: #007f6c; --h3: #139c84; --hi: #d9382f; --ico1: #00c2a8; --ico2: #0a9d86; --dot: #ffb14a; --logo: #0a7a69; }
+  :root { --bg2: #ffffff; --glow: #d3f6ec; --h1: #006457; --h2: #007f6c; --h3: #0c806c; --hi: #d9382f; --ico1: #00826f; --ico2: #00695c; --dot: #ffb14a; --logo: #0a7a69; }
   .stage { background: linear-gradient(180deg, var(--glow) 0, var(--bg) 240px, var(--bg2) 100%); }
   .logo { color: var(--logo); font-weight: 800; font-size: 22px; }
   .chip-btn { border: 2px solid var(--line); color: var(--logo); }
   .back { border: 2px solid var(--line); }
-  .hero { position: relative; overflow: hidden; background: radial-gradient(rgba(255, 255, 255, .22) 2px, transparent 2.6px) 0 0 / 20px 20px, linear-gradient(135deg, var(--h1) 0%, var(--h2) 60%, var(--h3) 100%); border-radius: 30px; padding: 26px 20px; box-shadow: 0 20px 40px rgba(0, 0, 0, .22); }
+  .hero { position: relative; overflow: hidden; background: radial-gradient(rgba(255, 255, 255, .10) 2px, transparent 2.6px) 0 0 / 20px 20px, linear-gradient(135deg, var(--h1) 0%, var(--h2) 60%, var(--h3) 100%); border-radius: 30px; padding: 26px 20px; box-shadow: 0 20px 40px rgba(0, 0, 0, .22); }
   .hero h1 { font-size: 31px; font-weight: 800; }
-  .hero small { background: rgba(255, 255, 255, .22); padding: 4px 10px; border-radius: 999px; display: inline-block; }
+  .hero small { background: rgba(0, 0, 0, .24); padding: 4px 10px; border-radius: 999px; display: inline-block; }
   .hero .btn.light { color: var(--fill); box-shadow: 0 12px 24px rgba(0, 0, 0, .25); }
   h2 { font-size: 21px; font-weight: 800; }
   h2::before { content: ''; display: inline-block; width: 7px; height: 20px; border-radius: 4px; background: linear-gradient(180deg, var(--fill), var(--fill2)); margin-right: 9px; vertical-align: -3px; }
@@ -176,6 +177,7 @@
   .item[data-a=quick]::before, .item[data-a=svc]::before { content: ''; width: 44px; height: 44px; border-radius: 15px; flex: none; background: radial-gradient(circle at 72% 28%, var(--dot) 0 18%, transparent 20%), linear-gradient(135deg, var(--ico1), var(--ico2)); }
   .item[data-a=quick] > span:first-of-type, .item[data-a=svc] > span:first-of-type { flex: 1; min-width: 0; }
   .item .price { color: var(--hi); font-weight: 800; }
+  .item.on .price { color: var(--logo); }
   .item.on { border-color: var(--fill); }
   .person { border-width: 2px; border-radius: 24px; }
   .ava, .perk i { background: linear-gradient(135deg, var(--ico1), var(--ico2)); }
@@ -226,8 +228,8 @@
   /* ---------- ниши ---------- */
   var NICHES = {
     beauty: {
-      title: 'Салон красоты', biz: 'Студия «Пион»', tag: 'Запишитесь к мастеру за минуту, без звонков', who: 'Мастера', hours: [10, 20], dark: false,
-      th: { bg: '#effcf8', bg2: '#ffffff', glow: '#d3f6ec', card: '#ffffff', ink: '#0f2e2a', soft: '#4d716b', line: '#cdeee6', accent: '#0a9d86', accent2: '#ff6b5e', fill: '#d9382f', fill2: '#c94a14', asoft: '#dff7f1', bar: '#0a7a69', head: "'Manrope', system-ui, sans-serif", h1: '#006457', h2: '#007f6c', h3: '#139c84', hi: '#d9382f', ico1: '#00c2a8', ico2: '#0a9d86', dot: '#ffb14a', logo: '#0a7a69' },
+      title: 'Салон красоты', biz: 'Студия «Пион»', tag: 'Запишитесь к мастеру за минуту, без звонков', who: 'Мастера', pick: 'Выберите мастера', hours: [10, 20], dark: false,
+      th: { bg: '#effcf8', bg2: '#ffffff', glow: '#d3f6ec', card: '#ffffff', ink: '#0f2e2a', soft: '#4d716b', line: '#cdeee6', accent: '#0a9d86', accent2: '#ff6b5e', fill: '#d9382f', fill2: '#c94a14', asoft: '#dff7f1', bar: '#0a7a69', head: "'Manrope', system-ui, sans-serif", h1: '#006457', h2: '#007f6c', h3: '#0c806c', hi: '#d9382f', ico1: '#00826f', ico2: '#00695c', dot: '#ffb14a', logo: '#0a7a69' },
       res: [{ id: 0, name: 'Алина', role: 'Стилист' }, { id: 1, name: 'Мария', role: 'Мастер маникюра' }, { id: 2, name: 'Ольга', role: 'Косметолог' }],
       svc: [
         { id: 'a', name: 'Стрижка', dur: 60, price: 2200, r: [0] },
@@ -238,8 +240,8 @@
       ]
     },
     barber: {
-      title: 'Барбершоп', biz: 'Барбершоп «Кедр»', tag: 'Выберите барбера и время, всё остальное мы сделаем сами', who: 'Барберы', hours: [10, 21], dark: true,
-      th: { bg: '#14100e', bg2: '#0e0b0a', glow: '#2d1815', card: '#1f1916', ink: '#f4ece4', soft: '#a8998e', line: '#3b2c29', accent: '#f0553f', accent2: '#f08a24', fill: '#c4372a', fill2: '#b8500c', asoft: '#2e1b17', bar: '#a82c1f', head: "'Oswald', Impact, sans-serif", h1: '#8f1d14', h2: '#c4372a', h3: '#d9731a', hi: '#ff7a59', ico1: '#d8402f', ico2: '#9c2418', dot: '#ffc24a', logo: '#ffffff' },
+      title: 'Барбершоп', biz: 'Барбершоп «Кедр»', tag: 'Выберите барбера и время, всё остальное мы сделаем сами', who: 'Барберы', pick: 'Выберите барбера', hours: [10, 21], dark: true,
+      th: { bg: '#14100e', bg2: '#0e0b0a', glow: '#2d1815', card: '#1f1916', ink: '#f4ece4', soft: '#a8998e', line: '#3b2c29', accent: '#f0553f', accent2: '#f08a24', fill: '#c4372a', fill2: '#b8500c', asoft: '#2e1b17', bar: '#a82c1f', head: "'Oswald', Impact, sans-serif", h1: '#8f1d14', h2: '#c4372a', h3: '#b85a0e', hi: '#ff7a59', ico1: '#c4372a', ico2: '#9c2418', dot: '#ffc24a', logo: '#ffffff' },
       res: [{ id: 0, name: 'Артём', role: 'Барбер' }, { id: 1, name: 'Никита', role: 'Барбер' }, { id: 2, name: 'Денис', role: 'Топ-барбер' }],
       svc: [
         { id: 'a', name: 'Мужская стрижка', dur: 60, price: 1800, r: [0, 1, 2] },
@@ -250,8 +252,8 @@
       ]
     },
     carwash: {
-      title: 'Автомойка', biz: 'Мойка «Капля»', tag: 'Займите бокс заранее и приезжайте без очереди', who: 'Боксы', hours: [8, 22], dark: true,
-      th: { bg: '#0b1424', bg2: '#08101c', glow: '#12305a', card: '#12203a', ink: '#e8f1ff', soft: '#8da2c0', line: '#24406b', accent: '#35b8ea', accent2: '#5b9bff', fill: '#0e7fae', fill2: '#2563eb', asoft: '#10294a', bar: '#0b6a93', head: "'Manrope', system-ui, sans-serif", h1: '#0a4d78', h2: '#0f78b0', h3: '#1b9bd1', hi: '#4cc9f5', ico1: '#1ea5dc', ico2: '#2563eb', dot: '#ffc24a', logo: '#e8f1ff' },
+      title: 'Автомойка', biz: 'Мойка «Капля»', tag: 'Займите бокс заранее и приезжайте без очереди', who: 'Боксы', pick: 'Выберите бокс', hours: [8, 22], dark: true,
+      th: { bg: '#0b1424', bg2: '#08101c', glow: '#12305a', card: '#12203a', ink: '#e8f1ff', soft: '#8da2c0', line: '#24406b', accent: '#35b8ea', accent2: '#5b9bff', fill: '#0e7fae', fill2: '#2563eb', asoft: '#10294a', bar: '#0b6a93', head: "'Manrope', system-ui, sans-serif", h1: '#0a4d78', h2: '#0f78b0', h3: '#167ca8', hi: '#4cc9f5', ico1: '#1377a8', ico2: '#2563eb', dot: '#ffc24a', logo: '#e8f1ff' },
       res: [{ id: 0, name: 'Бокс 1', role: 'Мойка' }, { id: 1, name: 'Бокс 2', role: 'Мойка' }, { id: 2, name: 'Бокс 3', role: 'Детейлинг' }],
       svc: [
         { id: 'a', name: 'Мойка кузова', dur: 30, price: 800, r: [0, 1] },
@@ -262,8 +264,8 @@
       ]
     },
     clinic: {
-      title: 'Клиника', biz: 'Клиника «Ясность»', tag: 'Запись к врачу онлайн, в любое время суток', who: 'Врачи', hours: [8, 20], dark: false,
-      th: { bg: '#f2f8fb', bg2: '#ffffff', glow: '#d6ecf6', card: '#ffffff', ink: '#10303f', soft: '#4f6e7a', line: '#cfe3ec', accent: '#0b7f9f', accent2: '#16a39b', fill: '#0b7f9f', fill2: '#0a6f8c', asoft: '#dff0f7', bar: '#0a5f78', head: "'Manrope', system-ui, sans-serif", h1: '#075d78', h2: '#0b7f9f', h3: '#169c93', hi: '#0b7f9f', ico1: '#2ec4b6', ico2: '#0b7f9f', dot: '#ffb14a', logo: '#0a5f78' },
+      title: 'Клиника', biz: 'Клиника «Ясность»', tag: 'Запись к врачу онлайн, в любое время суток', who: 'Врачи', pick: 'Выберите врача', hours: [8, 20], dark: false,
+      th: { bg: '#f2f8fb', bg2: '#ffffff', glow: '#d6ecf6', card: '#ffffff', ink: '#10303f', soft: '#4f6e7a', line: '#cfe3ec', accent: '#0b7f9f', accent2: '#16a39b', fill: '#0b7f9f', fill2: '#0a6f8c', asoft: '#dff0f7', bar: '#0a5f78', head: "'Manrope', system-ui, sans-serif", h1: '#075d78', h2: '#0b7f9f', h3: '#0f8077', hi: '#0b7f9f', ico1: '#0b857c', ico2: '#0b7f9f', dot: '#ffb14a', logo: '#0a5f78' },
       res: [{ id: 0, name: 'Орлова Е.', role: 'Терапевт' }, { id: 1, name: 'Белов П.', role: 'Невролог' }, { id: 2, name: 'Миронова А.', role: 'УЗИ-диагностика' }],
       svc: [
         { id: 'a', name: 'Приём терапевта', dur: 30, price: 1800, r: [0] },
@@ -274,7 +276,7 @@
       ]
     },
     custom: {
-      title: 'Свой бизнес', biz: 'Ваш бизнес', tag: 'Онлайн-запись под ваш бренд: цвета, услуги и тексты', who: 'Специалисты', hours: [9, 19], dark: false,
+      title: 'Свой бизнес', biz: 'Ваш бизнес', tag: 'Онлайн-запись под ваш бренд: цвета, услуги и тексты', who: 'Специалисты', pick: 'Выберите специалиста', hours: [9, 19], dark: false,
       th: { bg: '#f6f5ff', bg2: '#ffffff', glow: '#e4defc', card: '#ffffff', ink: '#1c1b2e', soft: '#6b6a80', line: '#e0dcf5', accent: '#6c4cf1', accent2: '#4a62d8', fill: '#6c4cf1', fill2: '#4a62d8', asoft: '#eeebff', bar: '#1c1b2e', head: "'Manrope', system-ui, sans-serif", h1: '#5a3ad8', h2: '#6c4cf1', h3: '#4a62d8', hi: '#6c4cf1', ico1: '#6c4cf1', ico2: '#4a62d8', dot: '#ffb14a', logo: '#4b30c4' },
       res: [{ id: 0, name: 'Специалист 1', role: 'Ваша должность' }, { id: 1, name: 'Специалист 2', role: 'Ваша должность' }],
       svc: [
@@ -284,7 +286,7 @@
       ]
     }
   };
-  var SWATCH = [['#6c4cf1', '#6c4cf1', '#4a62d8'], ['#d13a3f', '#d13a3f', '#c2610a'], ['#0b7f74', '#0b7f74', '#1a7f8f'], ['#2f855a', '#2f855a', '#3f7f2f'], ['#b45f04', '#b45f04', '#c2397f']];
+  var SWATCH = [['#6c4cf1', '#6c4cf1', '#4a62d8'], ['#d13a3f', '#d13a3f', '#b05609'], ['#0b7f74', '#0b7f74', '#1a7f8f'], ['#2f855a', '#2f855a', '#3f7f2f'], ['#b45f04', '#b45f04', '#c2397f']];
   var NAMES = ['Анна К.', 'Игорь С.', 'Мария П.', 'Дмитрий Л.', 'Елена В.', 'Сергей Н.', 'Ольга Т.', 'Павел Р.', 'Наталья Б.', 'Алексей М.', 'Ирина Д.', 'Роман Ж.'];
   var TPL_DEF = {
     confirm: '✅ {имя}, запись подтверждена. {бизнес}: {услуга}, {время}. {мастер}. Ждём вас!',
@@ -311,8 +313,10 @@
   /* ---------- утилиты ---------- */
   function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
   function pad(n) { return (n < 10 ? '0' : '') + n; }
+  function plural(n, a, b, c) { var m = n % 100, k = n % 10; return m > 10 && m < 15 ? c : k === 1 ? a : (k > 1 && k < 5) ? b : c; }
   function money(n) { return String(n).replace(/\B(?=(\d{3})+(?!\d))/g, ' ') + ' ₽'; }
   function cur() { return NICHES[store.niche]; }
+  function offKey(id) { return store.niche + ':' + id; }
   function bizName() { return store.niche === 'custom' ? (store.custom.name || 'Ваш бизнес') : cur().biz; }
   function svcOf(id) { var l = cur().svc; for (var i = 0; i < l.length; i++) if (l[i].id === id) return l[i]; return l[0]; }
   function resOf(id) { var l = cur().res; for (var i = 0; i < l.length; i++) if (l[i].id === id) return l[i]; return l[0]; }
@@ -371,6 +375,7 @@
       while (c < total - 1) {
         var s = allowed[Math.floor(R() * allowed.length)], L = lenOf(s);
         if (c + L > total) break;
+        if (L >= 6 && R() < 0.65) { c += 2 + Math.floor(R() * 3); continue; }
         if (R() < 0.5) {
           out.push({ id: 's' + store.niche + date + r.id + '_' + c, res: r.id, date: date, start: c, len: L, svc: s.id, name: NAMES[Math.floor(R() * NAMES.length)], seed: true });
           c += L + Math.floor(R() * 2);
@@ -439,6 +444,7 @@
     var r = document.documentElement.style;
     ['bg', 'bg2', 'glow', 'card', 'ink', 'soft', 'line', 'accent', 'accent2', 'fill', 'fill2', 'asoft', 'bar', 'head', 'h1', 'h2', 'h3', 'hi', 'ico1', 'ico2', 'dot', 'logo'].forEach(function (k) { r.setProperty('--' + k, t[k]); });
     r.setProperty('--sheet', t.card);
+    r.setProperty('--bad', n.dark ? '#ff6b6f' : '#c62f33');
     var mt = document.querySelector('meta[name=theme-color]'); if (mt) mt.setAttribute('content', t.bg);
     $('#logo').textContent = bizName();
     $('#nicheBtn').textContent = n.title + ' ▾';
@@ -471,7 +477,7 @@
       var n = cur(), h = '';
       h += '<div class="hero"><small>' + esc(n.title) + '</small><h1>' + esc(bizName()) + '</h1><p>' + esc(n.tag) + '</p><button class="btn light" data-a="start">Записаться онлайн</button></div>';
       h += '<h2>Популярные услуги</h2><div class="list">';
-      n.svc.filter(function (s) { return !store.off[s.id]; }).slice(0, 3).forEach(function (s) {
+      n.svc.filter(function (s) { return !store.off[offKey(s.id)]; }).slice(0, 3).forEach(function (s) {
         h += '<button class="item" data-a="quick" data-v="' + s.id + '"><span><b>' + esc(s.name) + '</b><small>' + s.dur + ' мин</small></span><span class="price">' + money(s.price) + '</span></button>';
       });
       h += '</div><h2>' + esc(n.who) + '</h2><div class="people">';
@@ -486,13 +492,13 @@
     },
     services: function () {
       var n = cur(), f = state.flow, h = '<h1>Выберите услугу</h1><p class="sub">Сначала услуга, потом время.</p><div class="list">';
-      n.svc.filter(function (s) { return !store.off[s.id]; }).forEach(function (s) {
+      n.svc.filter(function (s) { return !store.off[offKey(s.id)]; }).forEach(function (s) {
         h += '<button class="item' + (f.svc === s.id ? ' on' : '') + '" data-a="svc" data-v="' + s.id + '"><span><b>' + esc(s.name) + '</b><small>' + s.dur + ' мин</small></span><span class="price">' + money(s.price) + '</span></button>';
       });
       return h + '</div>';
     },
     resource: function () {
-      var n = cur(), s = svcOf(state.flow.svc), h = '<h1>' + esc(n.who.slice(0, -1) === 'Бокс' ? 'Бокс' : 'Кто выполнит') + '</h1><p class="sub">' + esc(s.name) + ' · ' + s.dur + ' мин · ' + money(s.price) + '</p><div class="list">';
+      var n = cur(), s = svcOf(state.flow.svc), h = '<h1>' + esc(n.pick) + '</h1><p class="sub">' + esc(s.name) + ' · ' + s.dur + ' мин · ' + money(s.price) + '</p><div class="list">';
       h += '<button class="item" data-a="res" data-v="-1"><span class="who"><span class="ava">★</span><span><b>Любой свободный</b><small>Подберём ближайшее время</small></span></span></button>';
       n.res.filter(function (r) { return s.r.indexOf(r.id) > -1; }).forEach(function (r) {
         h += '<button class="item" data-a="res" data-v="' + r.id + '"><span class="who"><span class="ava">' + esc(r.name.charAt(0)) + '</span><span><b>' + esc(r.name) + '</b><small>' + esc(r.role) + '</small></span></span></button>';
@@ -559,7 +565,7 @@
     var n = cur(), d = days(), o = d[state.aday], list = bookings(o.key), total = nSlots() * n.res.length, busy = 0, sum = 0;
     list.forEach(function (b) { busy += b.len; sum += svcOf(b.svc).price; });
     var h = '<h1>Панель администратора</h1><p class="sub">Так владелец видит записи и загрузку.</p>';
-    h += '<div class="stats"><div class="stat"><b>' + list.length + '</b><small>записей</small></div><div class="stat"><b>' + Math.round(busy / total * 100) + '%</b><small>загрузка</small></div><div class="stat"><b>' + money(sum) + '</b><small>на день</small></div></div>';
+    h += '<div class="stats"><div class="stat"><b>' + list.length + '</b><small>' + plural(list.length, 'запись', 'записи', 'записей') + '</small></div><div class="stat"><b>' + Math.round(busy / total * 100) + '%</b><small>загрузка</small></div><div class="stat"><b>' + money(sum) + '</b><small>на день</small></div></div>';
     h += dayChips(state.aday, 'aday');
     var T = [['tl', 'Шкала'], ['list', 'Записи'], ['cl', 'Клиенты'], ['set', 'Тексты']];
     h += '<div class="seg">' + T.map(function (t) { return '<button class="' + (state.atab === t[0] ? 'on' : '') + '" data-a="atab" data-v="' + t[0] + '">' + t[1] + '</button>'; }).join('') + '</div>';
@@ -580,7 +586,7 @@
     }
     list.forEach(function (b) {
       var col = 0; n.res.forEach(function (r, k) { if (r.id === b.res) col = k; });
-      h += '<button class="blk' + (!b.seed ? ' mine' : '') + (isPast(date, b.start + b.len - 1) ? ' past' : '') + '" data-a="blk" data-v="' + esc(b.id) + '" style="grid-column:' + (col + 2) + ';grid-row:' + (b.start + 2) + ' / span ' + b.len + '"><b>' + esc(b.name) + '</b>' + esc(svcOf(b.svc).name) + '</button>';
+      h += '<button class="blk' + (!b.seed ? ' mine' : '') + (b.len >= 2 ? ' tall' : '') + (isPast(date, b.start + b.len - 1) ? ' past' : '') + '" data-a="blk" data-v="' + esc(b.id) + '" style="grid-column:' + (col + 2) + ';grid-row:' + (b.start + 2) + ' / span ' + b.len + '"><b>' + esc(b.name) + '</b>' + esc(svcOf(b.svc).name) + '</button>';
     });
     return h + '</div><p class="hint">Нажмите на запись, чтобы перенести или отменить. Яркие записи: новые или перенесённые вами.</p>';
   }
@@ -595,7 +601,7 @@
   function settings() {
     var n = cur(), h = '<div class="box"><b>Услуги</b><p class="hint" style="margin:2px 0 4px">Выключенная услуга пропадает у клиента.</p>';
     n.svc.forEach(function (s) {
-      h += '<button class="tgl" style="width:100%;text-align:left" data-a="svcOff" data-v="' + s.id + '"><span>' + esc(s.name) + ' · ' + money(s.price) + '</span><span class="sw' + (store.off[s.id] ? '' : ' on') + '"></span></button>';
+      h += '<button class="tgl" style="width:100%;text-align:left" data-a="svcOff" data-v="' + s.id + '"><span>' + esc(s.name) + ' · ' + money(s.price) + '</span><span class="sw' + (store.off[offKey(s.id)] ? '' : ' on') + '"></span></button>';
     });
     h += '</div><div class="box"><b>Тексты сообщений</b><p class="hint" style="margin:2px 0 0">Можно менять. Подстановки: {имя} {услуга} {время} {мастер} {бизнес}</p>';
     [['confirm', 'Подтверждение записи'], ['remind', 'Напоминание'], ['cancel', 'Отмена записи']].forEach(function (t) {
@@ -679,7 +685,7 @@
         '<button class="btn" style="margin-top:16px" data-a="close">Понятно</button>');
     }
     else if (a === 'blk') { var bb = findBk(v); if (bb) blkSheet(bb); }
-    else if (a === 'svcOff') { store.off[v] = !store.off[v]; save(); render(); }
+    else if (a === 'svcOff') { store.off[offKey(v)] = !store.off[offKey(v)]; save(); render(); }
     else if (a === 'niche') {
       store.niche = v; save(); state.flow = {}; state.history = []; state.screen = 'home'; theme(); render(); nicheSheet(); window.scrollTo(0, 0);
     }
