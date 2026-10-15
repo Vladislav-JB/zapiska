@@ -101,7 +101,7 @@
   .inp { width: 100%; padding: 14px; border-radius: 14px; border: 1.5px solid var(--line); background: var(--card); outline: none; }
   .inp:focus { border-color: var(--accent); }
   .inp.bad { border-color: var(--bad); }
-  textarea.inp { min-height: 76px; resize: vertical; font-size: 14.5px; }
+  textarea.inp { min-height: 120px; resize: vertical; font-size: 14.5px; }
   .err { color: var(--bad); font-size: 13.5px; margin-top: 6px; min-height: 18px; }
   .hint { color: var(--soft); font-size: 13px; margin-top: 8px; }
   .center { text-align: center; }
@@ -265,7 +265,7 @@
     },
     clinic: {
       title: 'Клиника', biz: 'Клиника «Ясность»', tag: 'Запись к врачу онлайн, в любое время суток', who: 'Врачи', pick: 'Выберите врача', hours: [8, 20], dark: false,
-      th: { bg: '#f2f8fb', bg2: '#ffffff', glow: '#d6ecf6', card: '#ffffff', ink: '#10303f', soft: '#4f6e7a', line: '#cfe3ec', accent: '#0b7f9f', accent2: '#16a39b', fill: '#0b7f9f', fill2: '#0a6f8c', asoft: '#dff0f7', bar: '#0a5f78', head: "'Manrope', system-ui, sans-serif", h1: '#075d78', h2: '#0b7f9f', h3: '#0f8077', hi: '#0b7f9f', ico1: '#0b857c', ico2: '#0b7f9f', dot: '#ffb14a', logo: '#0a5f78' },
+      th: { bg: '#f2f8fb', bg2: '#ffffff', glow: '#d6ecf6', card: '#ffffff', ink: '#10303f', soft: '#4a6a76', line: '#cfe3ec', accent: '#0b7f9f', accent2: '#16a39b', fill: '#0b7f9f', fill2: '#0a6f8c', asoft: '#dff0f7', bar: '#0a5f78', head: "'Manrope', system-ui, sans-serif", h1: '#075d78', h2: '#0b7f9f', h3: '#0f8077', hi: '#0b7f9f', ico1: '#0b857c', ico2: '#0b7f9f', dot: '#ffb14a', logo: '#0a5f78' },
       res: [{ id: 0, name: 'Орлова Е.', role: 'Терапевт' }, { id: 1, name: 'Белов П.', role: 'Невролог' }, { id: 2, name: 'Миронова А.', role: 'УЗИ-диагностика' }],
       svc: [
         { id: 'a', name: 'Приём терапевта', dur: 30, price: 1800, r: [0] },
@@ -277,7 +277,7 @@
     },
     custom: {
       title: 'Свой бизнес', biz: 'Ваш бизнес', tag: 'Онлайн-запись под ваш бренд: цвета, услуги и тексты', who: 'Специалисты', pick: 'Выберите специалиста', hours: [9, 19], dark: false,
-      th: { bg: '#f6f5ff', bg2: '#ffffff', glow: '#e4defc', card: '#ffffff', ink: '#1c1b2e', soft: '#6b6a80', line: '#e0dcf5', accent: '#6c4cf1', accent2: '#4a62d8', fill: '#6c4cf1', fill2: '#4a62d8', asoft: '#eeebff', bar: '#1c1b2e', head: "'Manrope', system-ui, sans-serif", h1: '#5a3ad8', h2: '#6c4cf1', h3: '#4a62d8', hi: '#6c4cf1', ico1: '#6c4cf1', ico2: '#4a62d8', dot: '#ffb14a', logo: '#4b30c4' },
+      th: { bg: '#f6f5ff', bg2: '#ffffff', glow: '#e4defc', card: '#ffffff', ink: '#1c1b2e', soft: '#5f5e75', line: '#e0dcf5', accent: '#6c4cf1', accent2: '#4a62d8', fill: '#6c4cf1', fill2: '#4a62d8', asoft: '#eeebff', bar: '#1c1b2e', head: "'Manrope', system-ui, sans-serif", h1: '#5a3ad8', h2: '#6c4cf1', h3: '#4a62d8', hi: '#6c4cf1', ico1: '#6c4cf1', ico2: '#4a62d8', dot: '#ffb14a', logo: '#563dc1' },
       res: [{ id: 0, name: 'Специалист 1', role: 'Ваша должность' }, { id: 1, name: 'Специалист 2', role: 'Ваша должность' }],
       svc: [
         { id: 'a', name: 'Консультация', dur: 30, price: 1000, r: [0, 1] },
@@ -286,6 +286,7 @@
       ]
     }
   };
+  var SWATCH_TEXT = ['#563dc1', '#a72e32', '#09665d', '#266a48', '#904c03'];
   var SWATCH = [['#6c4cf1', '#6c4cf1', '#4a62d8'], ['#d13a3f', '#d13a3f', '#b05609'], ['#0b7f74', '#0b7f74', '#1a7f8f'], ['#2f855a', '#2f855a', '#3f7f2f'], ['#b45f04', '#b45f04', '#c2397f']];
   var NAMES = ['Анна К.', 'Игорь С.', 'Мария П.', 'Дмитрий Л.', 'Елена В.', 'Сергей Н.', 'Ольга Т.', 'Павел Р.', 'Наталья Б.', 'Алексей М.', 'Ирина Д.', 'Роман Ж.'];
   var TPL_DEF = {
@@ -424,7 +425,7 @@
     if (b.seed) {
       if (store.hidden.indexOf(b.id) === -1) store.hidden.push(b.id);
       store.bk.push({ id: 'm' + Date.now(), niche: store.niche, res: res, date: date, start: start, len: b.len, svc: b.svc, name: b.name, moved: true });
-    } else { b.date = date; b.start = start; b.res = res; }
+    } else { b.date = date; b.start = start; b.res = res; b.moved = true; }
   }
 
   /* ---------- оформление ---------- */
@@ -439,7 +440,7 @@
     if (store.niche === 'custom') {
       var sw = SWATCH[store.custom.c] || SWATCH[0];
       t.accent = sw[0]; t.accent2 = sw[2]; t.fill = sw[1]; t.fill2 = sw[2]; t.asoft = mix(sw[0], 0.88);
-      t.h1 = sw[1]; t.h2 = sw[1]; t.h3 = sw[2]; t.hi = sw[1]; t.ico1 = sw[1]; t.ico2 = sw[2]; t.logo = sw[1]; t.glow = mix(sw[0], 0.8);
+      t.h1 = sw[1]; t.h2 = sw[1]; t.h3 = sw[2]; t.hi = sw[1]; t.ico1 = sw[1]; t.ico2 = sw[2]; t.logo = SWATCH_TEXT[store.custom.c] || SWATCH_TEXT[0]; t.glow = mix(sw[0], 0.8);
     }
     var r = document.documentElement.style;
     ['bg', 'bg2', 'glow', 'card', 'ink', 'soft', 'line', 'accent', 'accent2', 'fill', 'fill2', 'asoft', 'bar', 'head', 'h1', 'h2', 'h3', 'hi', 'ico1', 'ico2', 'dot', 'logo'].forEach(function (k) { r.setProperty('--' + k, t[k]); });
