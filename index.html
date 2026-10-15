@@ -6,13 +6,17 @@
 <title>Записка – Telegram Mini App для онлайн-записи, демо</title>
 <meta name="description" content="Демо-концепт Telegram Mini App для онлайн-записи клиентов: услуги, мастера, выбор времени, мои записи, админ-панель со шкалой загрузки. Подходит любому бизнесу с записью.">
 <meta name="theme-color" content="#fbf6f1">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Записка – Telegram Mini App для онлайн-записи">
+<meta property="og:description" content="Демо: клиенты записываются сами, администратор видит загрузку по времени и переносит записи в пару касаний. Подходит любому бизнесу с записью.">
+<meta property="og:url" content="https://web-atelie.ru/zapiska/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Carlito:ital,wght@1,700&family=Manrope:wght@500;700;800&family=Oswald:wght@500;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
 <style>
   :root {
     --bg: #fbf6f1; --card: #ffffff; --ink: #2b1d1a; --soft: #85706a; --line: #eadbd2;
-    --accent: #c0615a; --accent2: #d99a5b; --asoft: #f8e9e4; --bar: #2b1d1a;
+    --accent: #b0524b; --accent2: #a8672e; --fill: #b0524b; --fill2: #a8672e; --asoft: #f8e9e4; --bar: #2b1d1a;
     --head: 'Playfair Display', Georgia, serif; --ok: #17a673; --warn: #e08a1e; --bad: #e5484d; --r: 18px;
   }
   * { box-sizing: border-box; }
@@ -26,17 +30,17 @@
   input, textarea { font: inherit; color: inherit; }
   .stage { width: 100%; max-width: 440px; background: var(--bg); color: var(--ink); flex: 1 0 auto; display: flex; flex-direction: column; transition: background .3s; }
   @media (min-width: 600px) {
-    .stage { margin: 28px 0 0; border: 1px solid rgba(0,0,0,.08); border-radius: 30px; box-shadow: 0 24px 60px rgba(40, 30, 80, .16); overflow: hidden; flex: 0 0 auto; min-height: 760px; }
+    .stage { margin: 28px 0 0; border: 1px solid rgba(0,0,0,.08); border-radius: 30px; box-shadow: 0 24px 60px rgba(40, 30, 80, .16); overflow: hidden; overflow: clip; flex: 0 0 auto; min-height: 760px; }
   }
   .demo-bar { background: var(--bar); color: #fff; text-align: center; font-size: 12.5px; padding: 6px 12px; letter-spacing: .02em; }
   .tg-strip { display: flex; align-items: center; justify-content: center; gap: 8px; padding: 10px 12px; background: var(--asoft); color: var(--accent); font-weight: 700; font-size: 14.5px; text-decoration: none; border-bottom: 1px solid var(--line); }
   .tg-strip svg { width: 18px; height: 18px; }
   .tg-strip[hidden] { display: none; }
   .top { display: flex; align-items: center; gap: 10px; padding: 14px 16px 6px; }
-  .logo { font-family: var(--head); font-weight: 700; font-size: 21px; letter-spacing: -.01em; flex: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .logo { font-family: var(--head); font-weight: 700; font-size: 20px; line-height: 1.15; letter-spacing: -.01em; flex: 1; min-width: 0; overflow-wrap: anywhere; }
   .back { width: 38px; height: 38px; border-radius: 12px; background: var(--card); border: 1px solid var(--line); display: grid; place-items: center; font-size: 22px; flex: none; }
   .back[hidden] { display: none; }
-  .chip-btn { padding: 8px 12px; border-radius: 12px; background: var(--card); border: 1px solid var(--line); font-size: 13.5px; font-weight: 700; white-space: nowrap; flex: none; }
+  .chip-btn { padding: 8px 10px; border-radius: 12px; background: var(--card); border: 1px solid var(--line); font-size: 12.5px; font-weight: 700; white-space: nowrap; flex: none; }
   .view { padding: 8px 16px 20px; flex: 1; animation: in .22s ease; }
   @keyframes in { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
   @media (prefers-reduced-motion: reduce) { .view { animation: none; } * { transition: none !important; } }
@@ -44,13 +48,13 @@
   h1 { font-size: 25px; margin: 6px 0 4px; letter-spacing: -.01em; }
   h2 { font-size: 19px; margin: 20px 0 10px; }
   .sub { color: var(--soft); font-size: 14.5px; margin: 0 0 14px; }
-  .hero { background: linear-gradient(135deg, var(--accent), var(--accent2)); color: #fff; border-radius: 24px; padding: 20px 18px; margin: 6px 0 4px; }
+  .hero { background: linear-gradient(135deg, var(--fill), var(--fill2)); color: #fff; border-radius: 24px; padding: 20px 18px; margin: 6px 0 4px; }
   .hero small { opacity: .9; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; font-size: 11.5px; }
   .hero h1 { margin: 6px 0 6px; font-size: 27px; }
   .hero p { margin: 0 0 16px; opacity: .95; font-size: 15px; }
-  .btn { display: block; width: 100%; padding: 15px 16px; border-radius: 16px; background: linear-gradient(135deg, var(--accent), var(--accent2)); color: #fff; font-weight: 800; font-size: 16.5px; text-align: center; box-shadow: 0 10px 22px rgba(0, 0, 0, .16); }
+  .btn { display: block; width: 100%; padding: 15px 16px; border-radius: 16px; background: linear-gradient(135deg, var(--fill), var(--fill2)); color: #fff; font-weight: 800; font-size: 16.5px; text-align: center; box-shadow: 0 10px 22px rgba(0, 0, 0, .16); }
   .btn:disabled { opacity: .5; box-shadow: none; cursor: default; }
-  .btn.light { background: #fff; color: var(--accent); box-shadow: none; }
+  .btn.light { background: #fff; color: var(--fill); box-shadow: none; }
   .btn.ghost { background: var(--card); color: var(--accent); border: 1px solid var(--line); box-shadow: none; }
   .btn.small { padding: 10px 12px; font-size: 14.5px; border-radius: 12px; box-shadow: none; }
   .btn.danger { background: var(--card); color: var(--bad); border: 1px solid var(--line); box-shadow: none; }
@@ -64,7 +68,7 @@
   .item .price { font-weight: 800; white-space: nowrap; }
   .item.on { border-color: var(--accent); background: var(--asoft); }
   .item:active { transform: scale(.99); }
-  .ava { width: 44px; height: 44px; border-radius: 50%; background: linear-gradient(135deg, var(--accent), var(--accent2)); color: #fff; display: grid; place-items: center; font-weight: 800; flex: none; }
+  .ava { width: 44px; height: 44px; border-radius: 50%; background: linear-gradient(135deg, var(--fill), var(--fill2)); color: #fff; display: grid; place-items: center; font-weight: 800; flex: none; }
   .who { display: flex; align-items: center; gap: 12px; text-align: left; }
   .people { display: flex; gap: 10px; overflow-x: auto; padding-bottom: 4px; scrollbar-width: none; }
   .people::-webkit-scrollbar { display: none; }
@@ -83,11 +87,11 @@
   .days::-webkit-scrollbar { display: none; }
   .day { flex: none; min-width: 64px; padding: 8px 10px; border-radius: 14px; background: var(--card); border: 1.5px solid var(--line); text-align: center; font-size: 13px; color: var(--soft); font-weight: 700; }
   .day b { display: block; font-size: 17px; color: var(--ink); }
-  .day.on { background: var(--accent); border-color: var(--accent); color: #fff; }
+  .day.on { background: var(--fill); border-color: var(--fill); color: #fff; }
   .day.on b { color: #fff; }
   .slots { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
   .slot { padding: 11px 0; border-radius: 12px; background: var(--card); border: 1.5px solid var(--line); font-weight: 700; font-size: 14.5px; }
-  .slot.on { background: var(--accent); border-color: var(--accent); color: #fff; }
+  .slot.on { background: var(--fill); border-color: var(--fill); color: #fff; }
   .slot:disabled { opacity: .38; text-decoration: line-through; cursor: default; }
   .row { display: flex; justify-content: space-between; gap: 12px; padding: 6px 0; font-size: 15px; }
   .row span:first-child { color: var(--soft); }
@@ -118,14 +122,14 @@
   .stat small { color: var(--soft); font-size: 12px; }
   .seg { display: grid; grid-template-columns: repeat(4, 1fr); gap: 4px; background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 4px; margin: 4px 0 12px; }
   .seg button { padding: 8px 2px; border-radius: 10px; font-size: 13px; font-weight: 700; color: var(--soft); }
-  .seg button.on { background: var(--accent); color: #fff; }
-  .tl { display: grid; grid-template-columns: 40px repeat(var(--cols), minmax(0, 1fr)); grid-template-rows: auto; grid-auto-rows: 38px; column-gap: 4px; background: var(--card); border: 1px solid var(--line); border-radius: var(--r); padding: 8px 8px 8px 4px; }
+  .seg button.on { background: var(--fill); color: #fff; }
+  .tl { display: grid; grid-template-columns: 40px repeat(var(--cols), minmax(0, 1fr)); grid-template-rows: auto; grid-auto-rows: 44px; column-gap: 4px; background: var(--card); border: 1px solid var(--line); border-radius: var(--r); padding: 8px 8px 8px 4px; }
   .tl .hd { font-size: 12px; font-weight: 800; text-align: center; padding: 0 0 6px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
   .tl .tm { font-size: 11px; color: var(--soft); text-align: right; padding-right: 4px; transform: translateY(-7px); }
   .tl .cell { border-top: 1px solid var(--line); }
-  .tl .blk { margin: 2px 0; border-radius: 10px; padding: 3px 6px; font-size: 11.5px; line-height: 1.25; background: var(--asoft); border-left: 3px solid var(--accent); color: var(--ink); text-align: left; overflow: hidden; z-index: 1; }
-  .tl .blk b { display: block; font-size: 12px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-  .tl .blk.mine { background: var(--accent); color: #fff; border-left-color: rgba(255, 255, 255, .6); }
+  .tl .blk { margin: 2px 0; border-radius: 10px; padding: 2px 5px; font-size: 10.5px; line-height: 1.15; white-space: nowrap; text-overflow: ellipsis; background: var(--asoft); border-left: 3px solid var(--accent); color: var(--ink); text-align: left; overflow: hidden; z-index: 1; }
+  .tl .blk b { display: block; font-size: 11.5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .tl .blk.mine { background: var(--fill); color: #fff; border-left-color: rgba(255, 255, 255, .6); }
   .tl .blk.past { opacity: .6; }
   .tgl { display: flex; justify-content: space-between; align-items: center; gap: 10px; padding: 10px 0; border-bottom: 1px solid var(--line); font-size: 14.5px; }
   .tgl:last-child { border-bottom: 0; }
@@ -159,7 +163,7 @@
 </head>
 <body>
 <div class="stage" id="stage">
-  <div class="demo-bar">ДЕМО · записи и сообщения ненастоящие</div>
+  <div class="demo-bar">ДЕМО «Записка» · записи и сообщения ненастоящие</div>
   <a class="tg-strip" id="tgStrip" href="#" target="_blank" rel="noopener" hidden><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21.5 3.3 2.7 10.6c-1 .4-1 1.1-.2 1.3l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.4l2.3-2.2 4.8 3.5c.9.5 1.5.2 1.7-.8L22.9 4.7c.3-1.2-.4-1.8-1.4-1.4zM8.4 13l9.5-6c.4-.3.8-.1.5.2l-7.9 7.2-.3 3.3L8.4 13z"/></svg>Протестировать в Telegram</a>
   <div class="top">
     <button class="back" id="back" aria-label="Назад" hidden>‹</button>
@@ -195,7 +199,7 @@
   var NICHES = {
     beauty: {
       title: 'Салон красоты', biz: 'Студия «Пион»', tag: 'Запишитесь к мастеру за минуту, без звонков', who: 'Мастера', hours: [10, 20], dark: false,
-      th: { bg: '#fbf6f1', card: '#ffffff', ink: '#2b1d1a', soft: '#85706a', line: '#eadbd2', accent: '#c0615a', accent2: '#d99a5b', asoft: '#f8e9e4', bar: '#2b1d1a', head: "'Playfair Display', Georgia, serif" },
+      th: { bg: '#fbf6f1', card: '#ffffff', ink: '#2b1d1a', soft: '#85706a', line: '#eadbd2', accent: '#b0524b', accent2: '#a8672e', fill: '#b0524b', fill2: '#a8672e', asoft: '#f8e9e4', bar: '#2b1d1a', head: "'Playfair Display', Georgia, serif" },
       res: [{ id: 0, name: 'Алина', role: 'Стилист' }, { id: 1, name: 'Мария', role: 'Мастер маникюра' }, { id: 2, name: 'Ольга', role: 'Косметолог' }],
       svc: [
         { id: 'a', name: 'Стрижка', dur: 60, price: 2200, r: [0] },
@@ -207,7 +211,7 @@
     },
     barber: {
       title: 'Барбершоп', biz: 'Барбершоп «Кедр»', tag: 'Выберите барбера и время, всё остальное мы сделаем сами', who: 'Барберы', hours: [10, 21], dark: true,
-      th: { bg: '#14100e', card: '#1f1916', ink: '#f4ece4', soft: '#a8998e', line: '#352a28', accent: '#d8402f', accent2: '#f08a24', asoft: '#2e1b17', bar: '#d8402f', head: "'Oswald', Impact, sans-serif" },
+      th: { bg: '#14100e', card: '#1f1916', ink: '#f4ece4', soft: '#a8998e', line: '#352a28', accent: '#f0553f', accent2: '#f08a24', fill: '#c4372a', fill2: '#b8500c', asoft: '#2e1b17', bar: '#a82c1f', head: "'Oswald', Impact, sans-serif" },
       res: [{ id: 0, name: 'Артём', role: 'Барбер' }, { id: 1, name: 'Никита', role: 'Барбер' }, { id: 2, name: 'Денис', role: 'Топ-барбер' }],
       svc: [
         { id: 'a', name: 'Мужская стрижка', dur: 60, price: 1800, r: [0, 1, 2] },
@@ -219,7 +223,7 @@
     },
     carwash: {
       title: 'Автомойка', biz: 'Мойка «Капля»', tag: 'Займите бокс заранее и приезжайте без очереди', who: 'Боксы', hours: [8, 22], dark: true,
-      th: { bg: '#0b1424', card: '#12203a', ink: '#e8f1ff', soft: '#8da2c0', line: '#1f3354', accent: '#19a8dc', accent2: '#3b82f6', asoft: '#10294a', bar: '#0e7fae', head: "'Manrope', system-ui, sans-serif" },
+      th: { bg: '#0b1424', card: '#12203a', ink: '#e8f1ff', soft: '#8da2c0', line: '#1f3354', accent: '#35b8ea', accent2: '#5b9bff', fill: '#0e7fae', fill2: '#2563eb', asoft: '#10294a', bar: '#0b6a93', head: "'Manrope', system-ui, sans-serif" },
       res: [{ id: 0, name: 'Бокс 1', role: 'Мойка' }, { id: 1, name: 'Бокс 2', role: 'Мойка' }, { id: 2, name: 'Бокс 3', role: 'Детейлинг' }],
       svc: [
         { id: 'a', name: 'Мойка кузова', dur: 30, price: 800, r: [0, 1] },
@@ -231,7 +235,7 @@
     },
     clinic: {
       title: 'Клиника', biz: 'Клиника «Ясность»', tag: 'Запись к врачу онлайн, в любое время суток', who: 'Врачи', hours: [8, 20], dark: false,
-      th: { bg: '#f2f8f8', card: '#ffffff', ink: '#12302f', soft: '#5f7f7d', line: '#d6e6e5', accent: '#0f9d8f', accent2: '#2bb3c0', asoft: '#dff3f1', bar: '#12302f', head: "'Manrope', system-ui, sans-serif" },
+      th: { bg: '#f2f8f8', card: '#ffffff', ink: '#12302f', soft: '#5f7f7d', line: '#d6e6e5', accent: '#0b7f74', accent2: '#1a8f9b', fill: '#0b7f74', fill2: '#16747f', asoft: '#dff3f1', bar: '#12302f', head: "'Manrope', system-ui, sans-serif" },
       res: [{ id: 0, name: 'Орлова Е.', role: 'Терапевт' }, { id: 1, name: 'Белов П.', role: 'Невролог' }, { id: 2, name: 'Миронова А.', role: 'УЗИ-диагностика' }],
       svc: [
         { id: 'a', name: 'Приём терапевта', dur: 30, price: 1800, r: [0] },
@@ -243,7 +247,7 @@
     },
     custom: {
       title: 'Свой бизнес', biz: 'Ваш бизнес', tag: 'Онлайн-запись под ваш бренд: цвета, услуги и тексты', who: 'Специалисты', hours: [9, 19], dark: false,
-      th: { bg: '#f6f5ff', card: '#ffffff', ink: '#1c1b2e', soft: '#6b6a80', line: '#e6e4f5', accent: '#6c4cf1', accent2: '#4f7cff', asoft: '#eeebff', bar: '#1c1b2e', head: "'Manrope', system-ui, sans-serif" },
+      th: { bg: '#f6f5ff', card: '#ffffff', ink: '#1c1b2e', soft: '#6b6a80', line: '#e6e4f5', accent: '#6c4cf1', accent2: '#4a62d8', fill: '#6c4cf1', fill2: '#4a62d8', asoft: '#eeebff', bar: '#1c1b2e', head: "'Manrope', system-ui, sans-serif" },
       res: [{ id: 0, name: 'Специалист 1', role: 'Ваша должность' }, { id: 1, name: 'Специалист 2', role: 'Ваша должность' }],
       svc: [
         { id: 'a', name: 'Консультация', dur: 30, price: 1000, r: [0, 1] },
@@ -252,7 +256,7 @@
       ]
     }
   };
-  var SWATCH = [['#6c4cf1', '#4f7cff'], ['#e5484d', '#f59e0b'], ['#0f9d8f', '#2bb3c0'], ['#2f855a', '#7bc96f'], ['#d97706', '#f472b6']];
+  var SWATCH = [['#6c4cf1', '#6c4cf1', '#4a62d8'], ['#d13a3f', '#d13a3f', '#c2610a'], ['#0b7f74', '#0b7f74', '#1a7f8f'], ['#2f855a', '#2f855a', '#3f7f2f'], ['#b45f04', '#b45f04', '#c2397f']];
   var NAMES = ['Анна К.', 'Игорь С.', 'Мария П.', 'Дмитрий Л.', 'Елена В.', 'Сергей Н.', 'Ольга Т.', 'Павел Р.', 'Наталья Б.', 'Алексей М.', 'Ирина Д.', 'Роман Ж.'];
   var TPL_DEF = {
     confirm: '✅ {имя}, запись подтверждена. {бизнес}: {услуга}, {время}. {мастер}. Ждём вас!',
@@ -401,12 +405,12 @@
     for (k in n.th) t[k] = n.th[k];
     if (store.niche === 'custom') {
       var sw = SWATCH[store.custom.c] || SWATCH[0];
-      t.accent = sw[0]; t.accent2 = sw[1]; t.asoft = mix(sw[0], 0.88);
+      t.accent = sw[0]; t.accent2 = sw[2]; t.fill = sw[1]; t.fill2 = sw[2]; t.asoft = mix(sw[0], 0.88);
     }
     var r = document.documentElement.style;
     r.setProperty('--bg', t.bg); r.setProperty('--card', t.card); r.setProperty('--ink', t.ink); r.setProperty('--soft', t.soft);
     r.setProperty('--line', t.line); r.setProperty('--accent', t.accent); r.setProperty('--accent2', t.accent2);
-    r.setProperty('--asoft', t.asoft); r.setProperty('--bar', t.bar); r.setProperty('--head', t.head);
+    r.setProperty('--fill', t.fill); r.setProperty('--fill2', t.fill2); r.setProperty('--asoft', t.asoft); r.setProperty('--bar', t.bar); r.setProperty('--head', t.head);
     r.setProperty('--sheet', t.card);
     var mt = document.querySelector('meta[name=theme-color]'); if (mt) mt.setAttribute('content', t.bg);
     $('#logo').textContent = bizName();
@@ -586,7 +590,7 @@
     if (store.niche === 'custom') {
       h += '<label class="lb" for="cname">Название вашего бизнеса</label><input class="inp" id="cname" maxlength="30" value="' + esc(store.custom.name) + '">' +
         '<label class="lb">Основной цвет</label><div class="sw-col">' + SWATCH.map(function (c, i) {
-          return '<button class="' + (store.custom.c === i ? 'on' : '') + '" data-a="color" data-v="' + i + '" style="background:linear-gradient(135deg,' + c[0] + ',' + c[1] + ')" aria-label="Цвет ' + (i + 1) + '"></button>';
+          return '<button class="' + (store.custom.c === i ? 'on' : '') + '" data-a="color" data-v="' + i + '" style="background:linear-gradient(135deg,' + c[1] + ',' + c[2] + ')" aria-label="Цвет ' + (i + 1) + '"></button>';
         }).join('') + '</div>';
     }
     h += '<button class="btn" style="margin-top:16px" data-a="close">Готово</button>';
